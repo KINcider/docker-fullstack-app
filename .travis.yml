@@ -6,17 +6,17 @@ services:
   - docker
 
 before install:
-  - docker build -t KINcider/react-test-app -f ./frontend/Dockerfile.dev ./frontend
+  - docker build -t youworld/react-test-app -f ./frontend/Dockerfile.dev ./frontend
 
 script:
-  - docker run -e CI=true KINcider/react-test-app npm run test
+  - docker run -e CI=true youworld/react-test-app npm run test
 
 after_success:
-  - docker build -t KINcider/docker-frontend ./frontend
-  - docker build -t KINcider/docker-backend ./backend
-  - docker build -t KINcider/nginx ./nginx
+  - docker build -t youworld/docker-frontend ./frontend
+  - docker build -t youworld/docker-backend ./backend
+  - docker build -t youworld/nginx ./nginx
   - echo "$DOCKER_HUB_PASSWORD" | docker login -u "$DOCKER_HUB_ID" --password-stdin
-  - docker push KINcider/docker-frontend
-  - docker push KINcider/docker-backend
-  - docker push KINcider/docker-nginx
+  - docker push youworld/docker-frontend
+  - docker push youworld/docker-backend
+  - docker push youworld/docker-nginx
   
