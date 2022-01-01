@@ -19,4 +19,16 @@ after_success:
   - docker push youworld/docker-frontend
   - docker push youworld/docker-backend
   - docker push youworld/docker-nginx
-  
+
+deploy:
+  provider: elasticbeanstalk
+  region: "ap-northeast-2"
+  app: "docker-fullstack-app"
+  env: "Dockerfullstackapp-env"
+  bucket_name: elasticbeanstalk-ap-northeast-2-576624845954
+  bucket_path: "docker-fullstack-app"
+  on:
+    branch: master
+
+access_key_id: $AWS_ACCESS_KEY
+secret_access_key: AWS_SECRET_ACCESS_KEY
