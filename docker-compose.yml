@@ -32,7 +32,3 @@ services:
       MYSQL_ROOT_PASSWORD: $MYSQL_ROOT_PASSWORD
       MYSQL_DATABASE: $MYSQL_DATABASE
       MYSQL_PORT: $MYSQL_PORT
-
-networks:
-    app-network:
-        driver: bridge  
