@@ -19,7 +19,7 @@ services:
     container_name: app_backend
     volumes:
       - /app/node_modules
-      - ./frontend:/app
+      - ./backend:/app
     mem_limit: 128m
     environment:
       MYSQL_HOST: $MYSQL_HOST 
